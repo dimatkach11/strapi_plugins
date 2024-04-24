@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cars",
+  "info": {
+    "singularName": "car",
+    "pluralName": "cars",
+    "displayName": "car",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
+    "model": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::model.model"
+    },
+    "version": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::version.version"
+    },
+    "c_brand": {
+      "type": "customField",
+      "options": {
+        "name": "brand",
+        "current_column": "brand_code",
+        "child_column": "brand_code"
+      },
+      "customField": "plugin::custom-fields.custom-relation"
+    },
+    "c_model": {
+      "type": "customField",
+      "options": {
+        "name": "model",
+        "current_column": "model_code",
+        "child_column": "model_code",
+        "parent": "c_brand"
+      },
+      "customField": "plugin::custom-fields.custom-relation"
+    },
+    "c_version": {
+      "type": "customField",
+      "options": {
+        "name": "version",
+        "parent": "c_model"
+      },
+      "customField": "plugin::custom-fields.custom-relation"
+    }
+  }
+}

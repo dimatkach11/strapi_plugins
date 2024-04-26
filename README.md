@@ -13,3 +13,11 @@ npm run develop
 # or
 yarn develop
 ```
+
+## Normal Behavior 
+
+![](https://github.com/dimatkach11/strapi_plugins/blob/master/befor-plugin.gif)
+
+##  The Behavior With The Custom Field
+
+![](https://github.com/dimatkach11/strapi_plugins/blob/master/after-plugin.gif)

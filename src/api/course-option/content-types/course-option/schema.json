@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_options",
+  "info": {
+    "singularName": "course-option",
+    "pluralName": "course-options",
+    "displayName": "Course Option",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course.course"
+    },
+    "course_pages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course-page.course-page",
+      "mappedBy": "course_options"
+    }
+  }
+}

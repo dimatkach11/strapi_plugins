@@ -45,7 +45,16 @@
         "name": "model",
         "current_column": "model_code",
         "child_column": "model_code",
-        "parent": "c_brand"
+        "parent": "c_brand",
+        "params": {
+          "db_columns": [
+            "brand_code: different_brand_code_name",
+            "model_code: different_model_code_name"
+          ],
+          "statics": [
+            "static_value: static_value_param_name"
+          ]
+        }
       },
       "customField": "plugin::custom-fields.custom-relation"
     },
@@ -53,7 +62,12 @@
       "type": "customField",
       "options": {
         "name": "version",
-        "parent": "c_model"
+        "parent": "c_model",
+        "params": {
+          "db_columns": [
+            ""
+          ]
+        }
       },
       "customField": "plugin::custom-fields.custom-relation"
     }

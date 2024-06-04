@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "paid": {
+      "type": "boolean",
+      "default": false
+    },
+    "author_code": {
+      "type": "string"
+    },
+    "lang_code": {
+      "type": "string"
+    }
+  }
+}

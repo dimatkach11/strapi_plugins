@@ -1,5 +1,26 @@
 const val = (value) => value && value !== "";
 
+const currentChildColumnsFilter = (entity, currentColumns, childColumns) => {
+  const result = {}
+
+  if (!val(currentColumns) || !val(childColumns)) return result
+
+  const current_columns = currentColumns.split(' ')
+  const child_columns = childColumns.split(' ')
+
+
+  if (current_columns.length === child_columns.length) {
+    result['filter'] = {}
+    current_columns.forEach((current_column, idx) => {
+      if (val(current_column) && val(child_columns[idx])) {
+        result.filter[child_columns[idx]] = entity[current_column]
+      }
+    })
+  }
+
+  return result
+}
+
 const onlyIdName = (entity, mainField) => {
   if (mainField) {
     return {
@@ -79,7 +100,7 @@ const entityFilters = ({
 }) => {
   return {
     ...onlyIdName(entity, mainField),
-    ...entityColumnsFilter(entity, current_column, child_column),
+    ...currentChildColumnsFilter(entity, current_column, child_column),
     ...entityCommonTableFilter(entity, common_relational_table),
     ...parentSelectedId(parentData),
     ...params(entity, optionsParams),

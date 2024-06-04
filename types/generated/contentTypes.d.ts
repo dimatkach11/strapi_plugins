@@ -788,6 +788,38 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAuthorAuthor extends Schema.CollectionType {
+  collectionName: 'authors';
+  info: {
+    singularName: 'author';
+    pluralName: 'authors';
+    displayName: 'Author';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    language: Attribute.String;
+    author_code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBrandBrand extends Schema.CollectionType {
   collectionName: 'brands';
   info: {
@@ -856,6 +888,13 @@ export interface ApiCarCar extends Schema.CollectionType {
           current_column: 'model_code';
           child_column: 'model_code';
           parent: 'c_brand';
+          params: {
+            db_columns: [
+              'brand_code: different_brand_code_name',
+              'model_code: different_model_code_name'
+            ];
+            statics: ['static_value: static_value_param_name'];
+          };
         }
       >;
     c_version: Attribute.JSON &
@@ -864,6 +903,9 @@ export interface ApiCarCar extends Schema.CollectionType {
         {
           name: 'version';
           parent: 'c_model';
+          params: {
+            db_columns: [''];
+          };
         }
       >;
     createdAt: Attribute.DateTime;
@@ -872,6 +914,256 @@ export interface ApiCarCar extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::car.car', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::car.car', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCourseCourse extends Schema.CollectionType {
+  collectionName: 'courses';
+  info: {
+    singularName: 'course';
+    pluralName: 'courses';
+    displayName: 'Course';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    paid: Attribute.Boolean & Attribute.DefaultTo<false>;
+    author_code: Attribute.String;
+    lang_code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCourseOptionCourseOption extends Schema.CollectionType {
+  collectionName: 'course_options';
+  info: {
+    singularName: 'course-option';
+    pluralName: 'course-options';
+    displayName: 'Course Option';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.Text;
+    course: Attribute.Relation<
+      'api::course-option.course-option',
+      'oneToOne',
+      'api::course.course'
+    >;
+    course_pages: Attribute.Relation<
+      'api::course-option.course-option',
+      'manyToMany',
+      'api::course-page.course-page'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course-option.course-option',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course-option.course-option',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCoursePageCoursePage extends Schema.CollectionType {
+  collectionName: 'course_pages';
+  info: {
+    singularName: 'course-page';
+    pluralName: 'course-pages';
+    displayName: 'Course Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID;
+    content: Attribute.Blocks;
+    cover: Attribute.Media;
+    free_course: Attribute.Relation<
+      'api::course-page.course-page',
+      'oneToOne',
+      'api::free-course.free-course'
+    >;
+    paid_course: Attribute.Relation<
+      'api::course-page.course-page',
+      'oneToOne',
+      'api::paid-course.paid-course'
+    >;
+    course_options: Attribute.Relation<
+      'api::course-page.course-page',
+      'manyToMany',
+      'api::course-option.course-option'
+    >;
+    c_course_types: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-enumeration',
+        {
+          enum: ['free_course', 'paid_course'];
+        }
+      >;
+    c_course: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'c_course_types';
+          parent: 'c_course_types';
+          common_relational_table: 'course';
+        }
+      >;
+    c_course_options: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'course_options';
+          parent: 'c_course';
+          common_relational_table: '';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course-page.course-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course-page.course-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFreeCourseFreeCourse extends Schema.CollectionType {
+  collectionName: 'free_courses';
+  info: {
+    singularName: 'free-course';
+    pluralName: 'free-courses';
+    displayName: 'Free_course';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    language: Attribute.Relation<
+      'api::free-course.free-course',
+      'oneToOne',
+      'api::language.language'
+    >;
+    author: Attribute.Relation<
+      'api::free-course.free-course',
+      'oneToOne',
+      'api::author.author'
+    >;
+    course: Attribute.Relation<
+      'api::free-course.free-course',
+      'oneToOne',
+      'api::course.course'
+    >;
+    c_language: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'language';
+          current_column: 'lang_code';
+          child_column: 'language';
+        }
+      >;
+    c_author: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'author';
+          parent: 'c_language';
+          current_column: 'language author_code';
+          child_column: 'lang_code author_code';
+        }
+      >;
+    c_course: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'course';
+          parent: 'c_author';
+          filter: '{ "paid":  false }';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::free-course.free-course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::free-course.free-course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLanguageLanguage extends Schema.CollectionType {
+  collectionName: 'languages';
+  info: {
+    singularName: 'language';
+    pluralName: 'languages';
+    displayName: 'Language';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    lang_code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::language.language',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::language.language',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -900,6 +1192,79 @@ export interface ApiModelModel extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::model.model',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPaidCoursePaidCourse extends Schema.CollectionType {
+  collectionName: 'paid_courses';
+  info: {
+    singularName: 'paid-course';
+    pluralName: 'paid-courses';
+    displayName: 'Paid_course';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    language: Attribute.Relation<
+      'api::paid-course.paid-course',
+      'oneToOne',
+      'api::language.language'
+    >;
+    author: Attribute.Relation<
+      'api::paid-course.paid-course',
+      'oneToOne',
+      'api::author.author'
+    >;
+    course: Attribute.Relation<
+      'api::paid-course.paid-course',
+      'oneToOne',
+      'api::course.course'
+    >;
+    c_language: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'language';
+          current_column: 'lang_code';
+          child_column: 'language';
+        }
+      >;
+    c_author: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'author';
+          parent: 'c_language';
+          current_column: 'language author_code';
+          child_column: 'lang_code author_code';
+        }
+      >;
+    c_course: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'course';
+          parent: 'c_author';
+          filter: '{ "paid":  true }';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::paid-course.paid-course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::paid-course.paid-course',
       'oneToOne',
       'admin::user'
     > &
@@ -955,9 +1320,16 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::author.author': ApiAuthorAuthor;
       'api::brand.brand': ApiBrandBrand;
       'api::car.car': ApiCarCar;
+      'api::course.course': ApiCourseCourse;
+      'api::course-option.course-option': ApiCourseOptionCourseOption;
+      'api::course-page.course-page': ApiCoursePageCoursePage;
+      'api::free-course.free-course': ApiFreeCourseFreeCourse;
+      'api::language.language': ApiLanguageLanguage;
       'api::model.model': ApiModelModel;
+      'api::paid-course.paid-course': ApiPaidCoursePaidCourse;
       'api::version.version': ApiVersionVersion;
     }
   }

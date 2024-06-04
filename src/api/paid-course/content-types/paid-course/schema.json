@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paid_courses",
+  "info": {
+    "singularName": "paid-course",
+    "pluralName": "paid-courses",
+    "displayName": "Paid_course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "language": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::language.language"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course.course"
+    },
+    "c_language": {
+      "type": "customField",
+      "options": {
+        "name": "language",
+        "current_column": "lang_code",
+        "child_column": "language"
+      },
+      "customField": "plugin::custom-fields.custom-relation"
+    },
+    "c_author": {
+      "type": "customField",
+      "options": {
+        "name": "author",
+        "parent": "c_language",
+        "current_column": "language author_code",
+        "child_column": "lang_code author_code"
+      },
+      "customField": "plugin::custom-fields.custom-relation"
+    },
+    "c_course": {
+      "type": "customField",
+      "options": {
+        "name": "course",
+        "parent": "c_author",
+        "filter": "{ \"paid\":  true }"
+      },
+      "customField": "plugin::custom-fields.custom-relation"
+    }
+  }
+}

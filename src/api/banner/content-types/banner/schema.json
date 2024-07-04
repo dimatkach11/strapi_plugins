@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banners",
+  "info": {
+    "singularName": "banner",
+    "pluralName": "banners",
+    "displayName": "Banner",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    },
+    "campaign": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::campaign.campaign"
+    },
+    "c_brand": {
+      "type": "customField",
+      "options": {
+        "name": "brand",
+        "current_column": "brand_code",
+        "child_column": "brand_code"
+      },
+      "customField": "plugin::custom-fields.custom-relation"
+    },
+    "c_campaign": {
+      "type": "customField",
+      "options": {
+        "name": "campaign",
+        "parent": "c_brand"
+      },
+      "customField": "plugin::custom-fields.custom-relation"
+    }
+  }
+}

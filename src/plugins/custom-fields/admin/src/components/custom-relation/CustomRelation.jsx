@@ -26,7 +26,7 @@ export default function CustomRelation(props) {
     if (relation) {
       // relation data like { filter, parentSelectedId, params, ... } comes from server controller
       const { filter, parentSelectedId } = relation;
-      value = { ...value, filter, parentSelectedId };
+      value = { filter, parentSelectedId };
 
       if (relation.params) {
         const { db_columns, statics } = relation.params;

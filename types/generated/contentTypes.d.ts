@@ -1293,6 +1293,37 @@ export interface ApiModelModel extends Schema.CollectionType {
   };
 }
 
+export interface ApiNationNation extends Schema.CollectionType {
+  collectionName: 'nations';
+  info: {
+    singularName: 'nation';
+    pluralName: 'nations';
+    displayName: 'Nation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    locale_code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::nation.nation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::nation.nation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPaidCoursePaidCourse extends Schema.CollectionType {
   collectionName: 'paid_courses';
   info: {
@@ -1366,6 +1397,89 @@ export interface ApiPaidCoursePaidCourse extends Schema.CollectionType {
   };
 }
 
+export interface ApiPlacePlace extends Schema.CollectionType {
+  collectionName: 'places';
+  info: {
+    singularName: 'place';
+    pluralName: 'places';
+    displayName: 'Place';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    city: Attribute.String;
+    region: Attribute.String;
+    locale_code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::place.place',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::place.place',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTourTour extends Schema.CollectionType {
+  collectionName: 'tours';
+  info: {
+    singularName: 'tour';
+    pluralName: 'tours';
+    displayName: 'Tour';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    slug: Attribute.UID;
+    nation: Attribute.Relation<
+      'api::tour.tour',
+      'oneToOne',
+      'api::nation.nation'
+    >;
+    places: Attribute.Relation<
+      'api::tour.tour',
+      'oneToMany',
+      'api::place.place'
+    >;
+    c_nation: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'nation';
+          current_column: 'locale_code';
+          child_column: 'locale_code';
+        }
+      >;
+    c_places: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'places';
+          parent: 'c_nation';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tour.tour', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tour.tour', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiVersionVersion extends Schema.CollectionType {
   collectionName: 'versions';
   info: {
@@ -1425,7 +1539,10 @@ declare module '@strapi/types' {
       'api::free-course.free-course': ApiFreeCourseFreeCourse;
       'api::language.language': ApiLanguageLanguage;
       'api::model.model': ApiModelModel;
+      'api::nation.nation': ApiNationNation;
       'api::paid-course.paid-course': ApiPaidCoursePaidCourse;
+      'api::place.place': ApiPlacePlace;
+      'api::tour.tour': ApiTourTour;
       'api::version.version': ApiVersionVersion;
     }
   }

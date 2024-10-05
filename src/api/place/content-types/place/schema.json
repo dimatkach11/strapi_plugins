@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "places",
+  "info": {
+    "singularName": "place",
+    "pluralName": "places",
+    "displayName": "Place"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "city": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "locale_code": {
+      "type": "string"
+    }
+  }
+}

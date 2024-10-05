@@ -1,5 +1,6 @@
 const carDummyData = require("./car");
 const coursesDummyData = require("./courses");
+const toursDummyData = require("./tour");
 
 module.exports = async () => {
   // generate car data
@@ -121,5 +122,32 @@ module.exports = async () => {
         strapi.log.info("end Generating Dummy course options Data");
       }
     });
+  }
+
+  // generate tours data
+  const { nations, places } = toursDummyData;
+  const dbNations = await strapi.entityService.count("api::nation.nation");
+  const dbPlaces = await strapi.entityService.count("api::place.place");
+
+  if (!dbNations && !dbPlaces) {
+    strapi.log.info("start Generating Dummy tours Data");
+
+    // nations creation
+    const nationsPromises = nations.map((nation) =>
+      strapi.entityService.create("api::nation.nation", { data: nation })
+    );
+
+    await Promise.all(nationsPromises);
+    strapi.log.info("Nations created");
+
+    // places creation
+    const placesPromises = places.map((place) =>
+      strapi.entityService.create("api::place.place", { data: place })
+    );
+
+    await Promise.all(placesPromises);
+    strapi.log.info("Places created");
+
+    strapi.log.info("end Generating Dummy tours Data");
   }
 };

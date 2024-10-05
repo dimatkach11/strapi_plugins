@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tours",
+  "info": {
+    "singularName": "tour",
+    "pluralName": "tours",
+    "displayName": "Tour",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "nation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::nation.nation"
+    },
+    "places": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::place.place"
+    },
+    "c_nation": {
+      "type": "customField",
+      "options": {
+        "name": "nation",
+        "current_column": "locale_code",
+        "child_column": "locale_code"
+      },
+      "customField": "plugin::custom-fields.custom-relation"
+    },
+    "c_places": {
+      "type": "customField",
+      "options": {
+        "name": "places",
+        "parent": "c_nation"
+      },
+      "customField": "plugin::custom-fields.custom-relation"
+    }
+  }
+}

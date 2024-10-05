@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nations",
+  "info": {
+    "singularName": "nation",
+    "pluralName": "nations",
+    "displayName": "Nation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "locale_code": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

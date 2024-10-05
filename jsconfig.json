@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
+    "module": "nodenext",
     "moduleResolution": "nodenext",
     "target": "ES2021",
     "checkJs": true,
     "allowJs": true,
-    "jsx": "react"
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   }
 }

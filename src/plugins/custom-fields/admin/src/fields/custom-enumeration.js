@@ -10,7 +10,7 @@ export default {
   type: "json",
   icon: Icon,
   components: {
-    Input: async () => import("../components/custom-enumeration/CustomEnumeration"),
+    Input: async () => import("../components/custom-enumeration/CustomEnumeration.jsx"),
   },
   inputSize: {
     default: 6,

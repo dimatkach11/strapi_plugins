@@ -11,7 +11,7 @@ export default {
   type: "json",
   icon: Icon,
   components: {
-    Input: async () => import("../components/custom-relation/CustomRelation"),
+    Input: async () => import("../components/custom-relation/CustomRelation.jsx"),
   },
   inputSize: {
     default: 6,

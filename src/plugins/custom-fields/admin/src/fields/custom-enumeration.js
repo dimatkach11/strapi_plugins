@@ -7,7 +7,7 @@ const FIELD_NAME = "custom-enumeration";
 export default {
   name: FIELD_NAME,
   pluginId: pluginId,
-  type: "enumeration",
+  type: "json",
   icon: Icon,
   components: {
     Input: async () => import("../components/custom-enumeration/CustomEnumeration"),

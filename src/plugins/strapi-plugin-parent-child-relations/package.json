@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "This is the description of the plugin.",
   "strapi": {
-    "name": "custom-fields",
+    "name": "parent-child-relations",
     "description": "Description of Parent Child Relations plugin",
     "kind": "plugin",
     "displayName": "Custom Fields"

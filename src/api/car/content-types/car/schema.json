@@ -37,7 +37,7 @@
         "current_column": "brand_code",
         "child_column": "brand_code"
       },
-      "customField": "plugin::custom-fields.custom-relation"
+      "customField": "plugin::parent-child-relations.custom-relation"
     },
     "c_model": {
       "type": "customField",
@@ -56,7 +56,7 @@
           ]
         }
       },
-      "customField": "plugin::custom-fields.custom-relation"
+      "customField": "plugin::parent-child-relations.custom-relation"
     },
     "c_version": {
       "type": "customField",
@@ -69,7 +69,7 @@
           ]
         }
       },
-      "customField": "plugin::custom-fields.custom-relation"
+      "customField": "plugin::parent-child-relations.custom-relation"
     }
   }
 }

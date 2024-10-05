@@ -35,7 +35,7 @@
         "current_column": "locale_code",
         "child_column": "locale_code"
       },
-      "customField": "plugin::custom-fields.custom-relation"
+      "customField": "plugin::parent-child-relations.custom-relation"
     },
     "c_places": {
       "type": "customField",
@@ -43,7 +43,7 @@
         "name": "places",
         "parent": "c_nation"
       },
-      "customField": "plugin::custom-fields.custom-relation"
+      "customField": "plugin::parent-child-relations.custom-relation"
     }
   }
 }

@@ -1,3 +1,3 @@
-# Strapi plugin custom-fields
+# Strapi plugin parent-child-relations
 
-A quick description of custom-fields.
+A quick description of parent-child-relations.

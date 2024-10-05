@@ -1101,7 +1101,7 @@ export interface ApiCoursePageCoursePage extends Schema.CollectionType {
     title: Attribute.String;
     slug: Attribute.UID;
     content: Attribute.Blocks;
-    cover: Attribute.Media;
+    cover: Attribute.Media<'images'>;
     free_course: Attribute.Relation<
       'api::course-page.course-page',
       'oneToOne',

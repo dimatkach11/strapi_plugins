@@ -820,6 +820,63 @@ export interface ApiAuthorAuthor extends Schema.CollectionType {
   };
 }
 
+export interface ApiBannerBanner extends Schema.CollectionType {
+  collectionName: 'banners';
+  info: {
+    singularName: 'banner';
+    pluralName: 'banners';
+    displayName: 'Banner';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    brand: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    campaign: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'api::campaign.campaign'
+    >;
+    c_brand: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'brand';
+          current_column: 'brand_code';
+          child_column: 'brand_code';
+        }
+      >;
+    c_campaign: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::custom-fields.custom-relation',
+        {
+          name: 'campaign';
+          parent: 'c_brand';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBrandBrand extends Schema.CollectionType {
   collectionName: 'brands';
   info: {
@@ -844,6 +901,43 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::brand.brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCampaignCampaign extends Schema.CollectionType {
+  collectionName: 'campaigns';
+  info: {
+    singularName: 'campaign';
+    pluralName: 'campaigns';
+    displayName: 'Campaign';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    brand_code: Attribute.String;
+    campaign_code: Attribute.String;
+    brand: Attribute.Relation<
+      'api::campaign.campaign',
+      'oneToOne',
+      'api::brand.brand'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::campaign.campaign',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::campaign.campaign',
       'oneToOne',
       'admin::user'
     > &
@@ -1321,7 +1415,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::author.author': ApiAuthorAuthor;
+      'api::banner.banner': ApiBannerBanner;
       'api::brand.brand': ApiBrandBrand;
+      'api::campaign.campaign': ApiCampaignCampaign;
       'api::car.car': ApiCarCar;
       'api::course.course': ApiCourseCourse;
       'api::course-option.course-option': ApiCourseOptionCourseOption;

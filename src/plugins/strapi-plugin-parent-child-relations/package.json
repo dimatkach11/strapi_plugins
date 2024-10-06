@@ -1,12 +1,25 @@
 {
-  "name": "strapi-plugin-parent-child-relations",
+  "name": "strapi-plugin-parent-child-relationships",
   "version": "0.0.0",
-  "description": "This is the description of the plugin.",
+  "description": "Strapi plugin to create and manage parent-child relationships between content types using custom fields",
+  "keywords": [
+    "strapi",
+    "strapi-plugin",
+    "custom-fields",
+    "parent-child",
+    "parent-child-relations",
+    "parent-child-relationships",
+    "strapi relationships",
+    "content hierarchy",
+    "strapi custom fields",
+    "content type relations",
+    "strapi content organization"
+  ],
   "strapi": {
-    "name": "parent-child-relations",
-    "description": "Description of Parent Child Relations plugin",
-    "kind": "plugin",
-    "displayName": "Custom Fields"
+    "name": "parent-child-relationships",
+    "displayName": "Parent Child Relationships",
+    "description": "Strapi plugin to create and manage parent-child relationships between content types using custom fields",
+    "kind": "plugin"
   },
   "dependencies": {
     "@strapi/design-system": "^1.6.3",
@@ -21,17 +34,20 @@
     "styled-components": "^5.3.6"
   },
   "peerDependencies": {
+    "@strapi/strapi": "^4.4.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^5.3.4",
     "styled-components": "^5.3.6"
   },
   "author": {
-    "name": "dimatkach11"
+    "name": "Dmytro Tkach",
+    "url": "https://github.com/dimatkach11"
   },
   "maintainers": [
     {
-      "name": "dimatkach11"
+      "name": "Dmytro Tkach",
+      "url": "https://github.com/dimatkach11"
     }
   ],
   "engines": {

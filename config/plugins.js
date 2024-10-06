@@ -1,5 +1,5 @@
 module.exports = () => ({
-  "parent-child-relations": {
+  "parent-child-relationships": {
     enabled: true,
     resolve: "./src/plugins/strapi-plugin-parent-child-relations",
   },

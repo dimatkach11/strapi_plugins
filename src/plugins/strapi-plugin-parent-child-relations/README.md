@@ -1,3 +1,3 @@
-# Strapi plugin parent-child-relations
+# Strapi plugin parent-child-relationships
 
-A quick description of parent-child-relations.
+A quick description of parent-child-relationships.

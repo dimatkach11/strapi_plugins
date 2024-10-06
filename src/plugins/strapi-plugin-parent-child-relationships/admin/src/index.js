@@ -16,8 +16,8 @@ export default {
       name,
     });
 
-    app.customFields.register(customEnumeration);
     app.customFields.register(customRelation);
+    app.customFields.register(customEnumeration);
   },
 
   bootstrap(app) {},

@@ -2,7 +2,7 @@ import Icon from "../components/icons/CustomEnumerationIcon";
 import pluginId from "../pluginId";
 import getTrad from "../utils/getTrad";
 
-const FIELD_NAME = "custom-enumeration";
+const FIELD_NAME = "dynamic-root";
 
 export default {
   name: FIELD_NAME,
@@ -18,11 +18,11 @@ export default {
   },
   intlLabel: {
     id: getTrad("label", FIELD_NAME),
-    defaultMessage: "Custom enumeration",
+    defaultMessage: "Dynamic Relation Root",
   },
   intlDescription: {
     id: getTrad("description", FIELD_NAME),
-    defaultMessage: "Select a custom enumeration",
+    defaultMessage: "Change relation root between a set of defined relations",
   },
   options: {
     base: [
@@ -30,6 +30,10 @@ export default {
         intlLabel: {
           id: getTrad("options", FIELD_NAME),
           defaultMessage: "Relations: one per row",
+        },
+        description: {
+          id: getTrad("options.description", FIELD_NAME),
+          defaultMessage: "List each relation name that exists in the current collection",
         },
         name: "options.enum",
         type: "textarea-enum",

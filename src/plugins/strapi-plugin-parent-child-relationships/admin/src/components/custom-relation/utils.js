@@ -1,7 +1,7 @@
 import pluginId from "../../pluginId";
 const requestURL = `/${pluginId}/custom-relation`;
 
-const CUSTOM_ENUMERATION = `plugin::${pluginId}.custom-enumeration`;
+const CUSTOM_ENUMERATION = `plugin::${pluginId}.dynamic-root`;
 
 const _value = (value) => {
   if (value && value !== "null") return JSON.parse(value);

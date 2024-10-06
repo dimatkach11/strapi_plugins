@@ -53,7 +53,7 @@
           "paid_course"
         ]
       },
-      "customField": "plugin::parent-child-relationships.custom-enumeration"
+      "customField": "plugin::parent-child-relationships.dynamic-root"
     },
     "c_course": {
       "type": "customField",

@@ -1119,7 +1119,7 @@ export interface ApiCoursePageCoursePage extends Schema.CollectionType {
     >;
     c_course_types: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-enumeration',
+        'plugin::parent-child-relationships.dynamic-root',
         {
           enum: ['free_course', 'paid_course'];
         }

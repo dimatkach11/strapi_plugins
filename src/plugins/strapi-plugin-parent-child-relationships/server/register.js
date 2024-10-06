@@ -4,7 +4,7 @@ const plugin = require("../admin/src/pluginId");
 
 module.exports = ({ strapi }) => {
   strapi.customFields.register({
-    name: "parent-child-relation",
+    name: "relation",
     plugin,
     type: "json",
   });

@@ -3,7 +3,7 @@ import pluginId from "../pluginId";
 import getTrad from "../utils/getTrad";
 import * as yup from "yup";
 
-const FIELD_NAME = "parent-child-relation";
+const FIELD_NAME = "relation";
 
 export default {
   name: FIELD_NAME,

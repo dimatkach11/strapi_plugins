@@ -37,7 +37,7 @@
         "current_column": "lang_code",
         "child_column": "language"
       },
-      "customField": "plugin::parent-child-relationships.parent-child-relation"
+      "customField": "plugin::parent-child-relationships.relation"
     },
     "c_author": {
       "type": "customField",
@@ -47,7 +47,7 @@
         "current_column": "language author_code",
         "child_column": "lang_code author_code"
       },
-      "customField": "plugin::parent-child-relationships.parent-child-relation"
+      "customField": "plugin::parent-child-relationships.relation"
     },
     "c_course": {
       "type": "customField",
@@ -56,7 +56,7 @@
         "parent": "c_author",
         "filter": "{ \"paid\":  true }"
       },
-      "customField": "plugin::parent-child-relationships.parent-child-relation"
+      "customField": "plugin::parent-child-relationships.relation"
     }
   }
 }

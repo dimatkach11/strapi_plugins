@@ -17,7 +17,7 @@
   ],
   "strapi": {
     "name": "parent-child-relationships",
-    "displayName": "Parent Child Relationships",
+    "displayName": "Parent-Child Relationships",
     "description": "Strapi plugin to create and manage parent-child relationships between content types using custom fields",
     "kind": "plugin"
   },

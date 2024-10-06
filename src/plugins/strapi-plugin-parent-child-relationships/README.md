@@ -27,6 +27,18 @@ yarn add strapi-plugin-parent-child-relationships
 In Strapi by default, relationships between content types are managed using standard relation fields.
 These allow you to link different content types but lack advanced features for managing hierarchical relationships such as parent-child structures
 
+<br>
+
+<img style="width: 100%; height: auto;" src="./static/default-relationships.gif" alt="default-strapi-relationships" /> <br/>
+
+<br/>
+
 ### Parent-Child Relationships Behavior
 
 The **Parent-Child Relationships** plugin extends the default relationship capabilities in Strapi by providing a way to establish and manage hierarchical relationships between content types.
+
+<br>
+
+<img style="width: 100%; height: auto;" src="./static/parent-child-relationships.gif" alt="parent-child-relationships" /> <br/>
+
+<br/>

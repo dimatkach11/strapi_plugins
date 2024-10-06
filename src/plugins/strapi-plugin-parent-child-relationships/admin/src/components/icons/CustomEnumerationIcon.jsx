@@ -5,8 +5,8 @@
  */
 
 import React from 'react';
-import { Relation } from '@strapi/icons';
+import { Enumeration } from '@strapi/icons';
 
-const CustomEnumerationIcon = () => <Relation />;
+const CustomEnumerationIcon = () => <Enumeration />;
 
 export default CustomEnumerationIcon;

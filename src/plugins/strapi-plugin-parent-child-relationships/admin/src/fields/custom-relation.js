@@ -3,7 +3,7 @@ import pluginId from "../pluginId";
 import getTrad from "../utils/getTrad";
 import * as yup from "yup";
 
-const FIELD_NAME = "custom-relation";
+const FIELD_NAME = "parent-child-relation";
 
 export default {
   name: FIELD_NAME,
@@ -19,7 +19,7 @@ export default {
   },
   intlLabel: {
     id: getTrad("label", FIELD_NAME),
-    defaultMessage: "Custom Relation",
+    defaultMessage: "Parent-Child Relation",
   },
   intlDescription: {
     id: getTrad("description", FIELD_NAME),

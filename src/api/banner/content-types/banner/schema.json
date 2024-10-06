@@ -32,7 +32,7 @@
         "current_column": "brand_code",
         "child_column": "brand_code"
       },
-      "customField": "plugin::parent-child-relationships.custom-relation"
+      "customField": "plugin::parent-child-relationships.parent-child-relation"
     },
     "c_campaign": {
       "type": "customField",
@@ -40,7 +40,7 @@
         "name": "campaign",
         "parent": "c_brand"
       },
-      "customField": "plugin::parent-child-relationships.custom-relation"
+      "customField": "plugin::parent-child-relationships.parent-child-relation"
     }
   }
 }

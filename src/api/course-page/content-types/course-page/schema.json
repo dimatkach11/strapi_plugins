@@ -62,7 +62,7 @@
         "parent": "c_course_types",
         "common_relational_table": "course"
       },
-      "customField": "plugin::parent-child-relationships.custom-relation"
+      "customField": "plugin::parent-child-relationships.parent-child-relation"
     },
     "c_course_options": {
       "type": "customField",
@@ -71,7 +71,7 @@
         "parent": "c_course",
         "common_relational_table": ""
       },
-      "customField": "plugin::parent-child-relationships.custom-relation"
+      "customField": "plugin::parent-child-relationships.parent-child-relation"
     }
   }
 }

@@ -1,10 +1,10 @@
 # Strapi Plugin Parent-Child Relationships
 
-## Description
+## 📝 Description
 
 The **Parent-Child Relationships** plugin for Strapi allows you to create and manage hierarchical relationships between content types using custom fields. Enhance your content organization and establish clear hierarchical connections within your Strapi application.
 
-## 🔧 Installation
+## ⏳ Installation
 
 To install the plugin, run the following command in your Strapi project directory:
 
@@ -42,3 +42,5 @@ The **Parent-Child Relationships** plugin extends the default relationship capab
 <img style="width: 100%; height: auto;" src="./static/parent-child-relationships.gif" alt="parent-child-relationships" /> <br/>
 
 <br/>
+
+## 🔧 Configuration

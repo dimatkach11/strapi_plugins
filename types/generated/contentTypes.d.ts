@@ -845,7 +845,7 @@ export interface ApiBannerBanner extends Schema.CollectionType {
     >;
     c_brand: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'brand';
           current_column: 'brand_code';
@@ -854,7 +854,7 @@ export interface ApiBannerBanner extends Schema.CollectionType {
       >;
     c_campaign: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'campaign';
           parent: 'c_brand';
@@ -967,7 +967,7 @@ export interface ApiCarCar extends Schema.CollectionType {
     >;
     c_brand: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'brand';
           current_column: 'brand_code';
@@ -976,7 +976,7 @@ export interface ApiCarCar extends Schema.CollectionType {
       >;
     c_model: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'model';
           current_column: 'model_code';
@@ -993,7 +993,7 @@ export interface ApiCarCar extends Schema.CollectionType {
       >;
     c_version: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'version';
           parent: 'c_model';
@@ -1126,7 +1126,7 @@ export interface ApiCoursePageCoursePage extends Schema.CollectionType {
       >;
     c_course: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'c_course_types';
           parent: 'c_course_types';
@@ -1135,7 +1135,7 @@ export interface ApiCoursePageCoursePage extends Schema.CollectionType {
       >;
     c_course_options: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'course_options';
           parent: 'c_course';
@@ -1188,7 +1188,7 @@ export interface ApiFreeCourseFreeCourse extends Schema.CollectionType {
     >;
     c_language: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'language';
           current_column: 'lang_code';
@@ -1197,7 +1197,7 @@ export interface ApiFreeCourseFreeCourse extends Schema.CollectionType {
       >;
     c_author: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'author';
           parent: 'c_language';
@@ -1207,7 +1207,7 @@ export interface ApiFreeCourseFreeCourse extends Schema.CollectionType {
       >;
     c_course: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'course';
           parent: 'c_author';
@@ -1354,7 +1354,7 @@ export interface ApiPaidCoursePaidCourse extends Schema.CollectionType {
     >;
     c_language: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'language';
           current_column: 'lang_code';
@@ -1363,7 +1363,7 @@ export interface ApiPaidCoursePaidCourse extends Schema.CollectionType {
       >;
     c_author: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'author';
           parent: 'c_language';
@@ -1373,7 +1373,7 @@ export interface ApiPaidCoursePaidCourse extends Schema.CollectionType {
       >;
     c_course: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'course';
           parent: 'c_author';
@@ -1455,7 +1455,7 @@ export interface ApiTourTour extends Schema.CollectionType {
     >;
     c_nation: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'nation';
           current_column: 'locale_code';
@@ -1464,7 +1464,7 @@ export interface ApiTourTour extends Schema.CollectionType {
       >;
     c_places: Attribute.JSON &
       Attribute.CustomField<
-        'plugin::parent-child-relationships.custom-relation',
+        'plugin::parent-child-relationships.parent-child-relation',
         {
           name: 'places';
           parent: 'c_nation';

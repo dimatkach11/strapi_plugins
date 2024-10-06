@@ -9,7 +9,7 @@ module.exports = ({ strapi }) => {
     type: "json",
   });
   strapi.customFields.register({
-    name: "custom-relation",
+    name: "parent-child-relation",
     plugin,
     type: "json",
   });

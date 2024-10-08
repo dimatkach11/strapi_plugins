@@ -1,6 +1,7 @@
 const carDummyData = require("./car");
 const coursesDummyData = require("./courses");
 const toursDummyData = require("./tour");
+const statesDummyData = require("./states");
 
 module.exports = async () => {
   // generate car data
@@ -138,28 +139,47 @@ module.exports = async () => {
   }
 
   // generate tours data
-  const { nations, places } = toursDummyData;
+  const { places } = toursDummyData;
+  const { nations, cities } = statesDummyData;
   const dbNations = await strapi.entityService.count("api::nation.nation");
   const dbPlaces = await strapi.entityService.count("api::place.place");
+  const dbCities = await strapi.entityService.count("api::city.city");
 
-  if (!dbNations && !dbPlaces) {
+  if (!dbNations || !dbPlaces || !dbCities) {
     strapi.log.info("start Generating Dummy tours Data");
 
-    // nations creation
-    const nationsPromises = nations.map((nation) =>
-      strapi.entityService.create("api::nation.nation", { data: nation })
-    );
+    if (!dbNations) {
+      strapi.log.info("start Nations creation");
+      // nations creation
+      const nationsPromises = nations.map((nation) =>
+        strapi.entityService.create("api::nation.nation", { data: nation })
+      );
 
-    await Promise.all(nationsPromises);
-    strapi.log.info("Nations created");
+      await Promise.all(nationsPromises);
+      strapi.log.info("Nations created");
+    }
 
-    // places creation
-    const placesPromises = places.map((place) =>
-      strapi.entityService.create("api::place.place", { data: place })
-    );
+    if (!dbPlaces) {
+      strapi.log.info("start Places creation");
+      // places creation
+      const placesPromises = places.map((place) =>
+        strapi.entityService.create("api::place.place", { data: place })
+      );
 
-    await Promise.all(placesPromises);
-    strapi.log.info("Places created");
+      await Promise.all(placesPromises);
+      strapi.log.info("Places created");
+    }
+
+    if (!dbCities) {
+      strapi.log.info("start Cities creation");
+      // cities creation
+      const citiesPromises = cities.map((city) =>
+        strapi.entityService.create("api::city.city", { data: city })
+      );
+
+      await Promise.all(citiesPromises);
+      strapi.log.info("Cities created");
+    }
 
     strapi.log.info("end Generating Dummy tours Data");
   }

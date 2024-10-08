@@ -1013,6 +1013,30 @@ export interface ApiCarCar extends Schema.CollectionType {
   };
 }
 
+export interface ApiCityCity extends Schema.CollectionType {
+  collectionName: 'cities';
+  info: {
+    singularName: 'city';
+    pluralName: 'cities';
+    displayName: 'City';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    city_code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::city.city', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::city.city', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCourseCourse extends Schema.CollectionType {
   collectionName: 'courses';
   info: {
@@ -1370,6 +1394,64 @@ export interface ApiNationNation extends Schema.CollectionType {
   };
 }
 
+export interface ApiOfferOffer extends Schema.CollectionType {
+  collectionName: 'offers';
+  info: {
+    singularName: 'offer';
+    pluralName: 'offers';
+    displayName: 'Offer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    nation: Attribute.Relation<
+      'api::offer.offer',
+      'oneToOne',
+      'api::nation.nation'
+    >;
+    cities: Attribute.Relation<
+      'api::offer.offer',
+      'oneToMany',
+      'api::city.city'
+    >;
+    c_nation: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::parent-child-relationships.relation',
+        {
+          name: 'nation';
+          current_column: 'locale_code';
+          child_column: 'city_code';
+        }
+      >;
+    c_cities: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::parent-child-relationships.relation',
+        {
+          name: 'cities';
+          parent: 'c_nation';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::offer.offer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::offer.offer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOptionOption extends Schema.CollectionType {
   collectionName: 'options';
   info: {
@@ -1616,6 +1698,7 @@ declare module '@strapi/types' {
       'api::brand.brand': ApiBrandBrand;
       'api::campaign.campaign': ApiCampaignCampaign;
       'api::car.car': ApiCarCar;
+      'api::city.city': ApiCityCity;
       'api::course.course': ApiCourseCourse;
       'api::course-option.course-option': ApiCourseOptionCourseOption;
       'api::course-page.course-page': ApiCoursePageCoursePage;
@@ -1624,6 +1707,7 @@ declare module '@strapi/types' {
       'api::lead.lead': ApiLeadLead;
       'api::model.model': ApiModelModel;
       'api::nation.nation': ApiNationNation;
+      'api::offer.offer': ApiOfferOffer;
       'api::option.option': ApiOptionOption;
       'api::paid-course.paid-course': ApiPaidCoursePaidCourse;
       'api::place.place': ApiPlacePlace;

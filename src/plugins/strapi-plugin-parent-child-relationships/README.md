@@ -248,3 +248,53 @@ This entire process is demonstrated in the video.
 
 <img src="./static/brand-model-version-relationships.gif" alt="Content Manager - Managing Brand, Model, and Version Relationships" /> <br/>
 <br/>
+
+## Advanced Field Options: Explanation of Other Fields
+
+- **common relational table**
+- **current table column filter**
+- **db_name: param_name - one per row**
+- **static_value: param_name - one per row**
+
+<img src="./static/content-type-builder-relation-advanced-other-fields.png" alt="" /> <br/>
+<br/>
+
+### `current table column filter`
+
+The `current table column filter` field allows you to add an extra layer of filtering to the results returned by a relation. Let’s look at an example.
+
+Suppose we have an additional field called **segment** in our `Versions` collection:
+
+#### Versions
+
+| name               | version_code | segment |
+| ------------------ | ------------ | ------- |
+| Sport line edition | AUD_A1       | sport   |
+| Business edition   | AUD_A1       | city    |
+| S line             | AUD_A3       | sport   |
+| xDrive sport       | BMW_X5       | sport   |
+| xDrive city        | BMW_X5       | city    |
+| xDrive competition | BMW_X6       | sport   |
+| xDrive sport       | BMW_X6       | sport   |
+| xDrive 4X4         | BMW_X6       | suv     |
+
+With the `current table column filter`, you can apply a JSON filter to limit the results further.
+
+For instance, if we only want to display sports versions of cars, we can apply the following filter:
+
+```
+{"segment": "sport"}
+```
+
+By adding this filter, only the sports versions will be displayed in the results.
+
+For example, if we select the brand **BMW** and the model **X5**, without the filter we would see:
+
+- xDrive sport
+- xDrive city
+
+With the filter applied, we will only see:
+
+- xDrive sport
+
+<img src="./static/current-table-column-filter-version-segment.png" alt="Example of the current table column filter in action, showing only sports versions of the BMW X5 after filtering." />

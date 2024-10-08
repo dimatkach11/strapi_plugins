@@ -4,7 +4,8 @@
   "info": {
     "singularName": "version",
     "pluralName": "versions",
-    "displayName": "version"
+    "displayName": "version",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,6 +16,9 @@
       "type": "string"
     },
     "model_code": {
+      "type": "string"
+    },
+    "segment": {
       "type": "string"
     }
   }

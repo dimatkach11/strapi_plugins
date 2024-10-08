@@ -10,34 +10,47 @@ module.exports = async () => {
   const dbModels = await strapi.entityService.count("api::model.model");
   const dbVersions = await strapi.entityService.count("api::version.version");
 
-  if (!dbBrands && !dbModels && !dbVersions) {
+  if (!dbBrands || !dbModels || !dbVersions) {
     strapi.log.info("start Generating Dummy car Data");
 
-    // brands creation
-    const brandsPromises = brands.map((brand) =>
-      strapi.entityService.create("api::brand.brand", { data: brand })
-    );
+    if (!dbBrands) {
+      // brands creation
+      strapi.log.info("start Brands creation");
+      const brandsPromises = brands.map((brand) =>
+        strapi.entityService.create("api::brand.brand", { data: brand })
+      );
 
-    await Promise.all(brandsPromises);
-    strapi.log.info("Brands created");
+      await Promise.all(brandsPromises);
+      strapi.log.info("Brands created");
+    }
 
-    // models creation
-    const modelsPromises = models.map((model) =>
-      strapi.entityService.create("api::model.model", { data: model })
-    );
+    if (!dbModels) {
+      strapi.log.info("start Models creation");
+      // models creation
+      const modelsPromises = models.map((model) =>
+        strapi.entityService.create("api::model.model", { data: model })
+      );
 
-    await Promise.all(modelsPromises);
-    strapi.log.info("Models created");
+      await Promise.all(modelsPromises);
+      strapi.log.info("Models created");
+    }
 
-    // versions creation
-    const versionsPromises = versions.map((version) =>
-      strapi.entityService.create("api::version.version", { data: version })
-    );
+    if (!dbVersions) {
+      strapi.log.info("start Versions creation");
+      // versions creation
+      const versionsPromises = versions.map((version) =>
+        strapi.entityService.create("api::version.version", { data: version })
+      );
 
-    await Promise.all(versionsPromises);
-    strapi.log.info("Versions created");
+      await Promise.all(versionsPromises);
+      strapi.log.info("Versions created");
+    }
 
-    strapi.log.info("end Generating Dummy car Data");
+    if (!dbBrands && !dbModels && !dbVersions) {
+      strapi.log.info("end Generating Dummy car Data");
+    } else {
+      strapi.log.info("end Updating car Data");
+    }
   }
 
   // generate courses data

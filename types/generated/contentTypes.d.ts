@@ -1000,6 +1000,7 @@ export interface ApiCarCar extends Schema.CollectionType {
           params: {
             db_columns: [''];
           };
+          filter: '{"segment": "sport"}';
         }
       >;
     createdAt: Attribute.DateTime;
@@ -1486,6 +1487,7 @@ export interface ApiVersionVersion extends Schema.CollectionType {
     singularName: 'version';
     pluralName: 'versions';
     displayName: 'version';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1493,6 +1495,7 @@ export interface ApiVersionVersion extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     model_code: Attribute.String;
+    segment: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

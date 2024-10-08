@@ -67,7 +67,8 @@
           "db_columns": [
             ""
           ]
-        }
+        },
+        "filter": "{\"segment\": \"sport\"}"
       },
       "customField": "plugin::parent-child-relationships.relation"
     }

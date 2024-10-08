@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leads",
+  "info": {
+    "singularName": "lead",
+    "pluralName": "leads",
+    "displayName": "Lead",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "car": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::car.car"
+    },
+    "options": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::option.option"
+    },
+    "c_car": {
+      "type": "customField",
+      "options": {
+        "name": "car",
+        "common_relational_table": "version"
+      },
+      "customField": "plugin::parent-child-relationships.relation"
+    },
+    "c_options": {
+      "type": "customField",
+      "options": {
+        "name": "options",
+        "parent": "c_car"
+      },
+      "customField": "plugin::parent-child-relationships.relation"
+    }
+  }
+}

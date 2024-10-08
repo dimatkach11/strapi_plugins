@@ -1263,6 +1263,51 @@ export interface ApiLanguageLanguage extends Schema.CollectionType {
   };
 }
 
+export interface ApiLeadLead extends Schema.CollectionType {
+  collectionName: 'leads';
+  info: {
+    singularName: 'lead';
+    pluralName: 'leads';
+    displayName: 'Lead';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    car: Attribute.Relation<'api::lead.lead', 'oneToOne', 'api::car.car'>;
+    options: Attribute.Relation<
+      'api::lead.lead',
+      'oneToMany',
+      'api::option.option'
+    >;
+    c_car: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::parent-child-relationships.relation',
+        {
+          name: 'car';
+          common_relational_table: 'version';
+        }
+      >;
+    c_options: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::parent-child-relationships.relation',
+        {
+          name: 'options';
+          parent: 'c_car';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::lead.lead', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::lead.lead', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiModelModel extends Schema.CollectionType {
   collectionName: 'models';
   info: {
@@ -1318,6 +1363,41 @@ export interface ApiNationNation extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::nation.nation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOptionOption extends Schema.CollectionType {
+  collectionName: 'options';
+  info: {
+    singularName: 'option';
+    pluralName: 'options';
+    displayName: 'Options';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    version: Attribute.Relation<
+      'api::option.option',
+      'oneToOne',
+      'api::version.version'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::option.option',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::option.option',
       'oneToOne',
       'admin::user'
     > &
@@ -1541,8 +1621,10 @@ declare module '@strapi/types' {
       'api::course-page.course-page': ApiCoursePageCoursePage;
       'api::free-course.free-course': ApiFreeCourseFreeCourse;
       'api::language.language': ApiLanguageLanguage;
+      'api::lead.lead': ApiLeadLead;
       'api::model.model': ApiModelModel;
       'api::nation.nation': ApiNationNation;
+      'api::option.option': ApiOptionOption;
       'api::paid-course.paid-course': ApiPaidCoursePaidCourse;
       'api::place.place': ApiPlacePlace;
       'api::tour.tour': ApiTourTour;

@@ -312,3 +312,84 @@ We can modify the previously applied filter like this:
 <img src="./static/current-table-column-filter-version-segment-name.png" alt="" />
 
 Now, the results will only return versions where the `segment` is equal to "sport" and the `name` contains the word "xdrive" (case-insensitive).
+
+### `common relational table`
+
+To understand how the **common relational table** filter works, let's walk through an example.
+
+Suppose we've already created several entries in the `Car` collection. Now, we want to associate the `Car` collection as a relational field in another collection called `Lead` with the following relational fields:
+
+- **car** (Relationship with the `Car` collection)
+- **options** (Relationship with the `Option` collection)
+
+### Collections Schema
+
+Fields marked with \* are relational fields.
+
+- **brand\***
+- **model\***
+- **version\***
+
+#### Cars
+
+| name               | brand\* | model\* | version\*          |
+| ------------------ | ------- | ------- | ------------------ |
+| BMW X5 SPORT       | BMW     | X5      | xDrive sport       |
+| BMW X6 COMPETITION | BMW     | X6      | xDrive competition |
+
+`Cars` have a relationship with **brand**, **model**, and **version**.
+
+#### Options
+
+| name             | version\*          |
+| ---------------- | ------------------ |
+| co-pilot pack    | S line             |
+| color pure white | xDrive competition |
+| full lead        | xDrive competition |
+
+`Options` have a relationship with **version\***.
+
+As you can see, both `Cars` and `Options` share a common relational field, **version\***.
+
+### Filtering Options Based on a Common Relation
+
+During the creation of a `Lead`, after selecting a specific car (for instance, **BMW X6 COMPETITION**), we want to filter the `Options` displayed based on the common relational field they share—**version**.
+
+This means only the following options should be displayed:
+
+- **color pure white**
+- **full lead**
+
+Both the **BMW X6 COMPETITION** and these two options share the same version, **xDrive competition**.
+
+### How to Configure
+
+We follow a similar approach as when we configured the parent-child relationship between **brand** and **model**. This time, the configuration is between **car** and **options**, specifying the common relational table they share.
+
+Below are the configuration details with corresponding images:
+
+- Overview of the `Lead` fields.
+
+  ![Lead content type builder overview](./static/lead-content-type-builder-overview.png)  
+  <br/>
+
+- Configuration of `c_car`.
+
+  ![Car field configuration in Lead](./static/lead-content-type-builder-overview-1.png)  
+  <br/>
+
+  ![Car field advanced settings](./static/lead-content-type-builder-overview-2.png)  
+  <br/>
+
+- Configuration of `c_options`.
+
+  ![Options field configuration in Lead](./static/lead-content-type-builder-overview-3.png)  
+  <br/>
+
+  ![Options field advanced settings](./static/lead-content-type-builder-overview-4.png)  
+  <br/>
+
+### Lead - Content Manager View
+
+![Lead Content Manager overview](./static/lead-content-manager-view.gif)  
+<br/>

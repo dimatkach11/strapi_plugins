@@ -148,3 +148,103 @@ This configuration establishes that the `c_model` field depends on the `c_brand`
 ### Conclusion
 
 You have now successfully set up a hierarchical relationship between `brand` and `model` in your `Car` collection type by specifying parent-child filtering rules.
+
+### Content Manager
+
+Now, in the Content Manager, you will see both the default Strapi fields and the custom fields. This is normal.
+
+<img src="./static/content-manager-car-creation-first-step-overview.png" alt="Content Manager - Car Collection Fields Overview" /> <br/>
+<br/>
+
+To resolve this and display only the custom fields, you need to hide the default fields by using **Configure The View**.
+
+<img src="./static/content-manager-car-creation-configure-the-view.png" alt="Content Manager - Configure The View" /> <br/>
+<br/>
+
+### Result
+
+Now you can start creating your entries.
+
+<img src="./static/brand-model-relationships.gif" alt="Content Manager - Creating Brand and Model Relationships" /> <br/>
+<br/>
+
+## Next Step
+
+Now that we have learned how to create parent-child relationships, we can extend this concept further.
+
+Suppose we want to filter between versions once a model is selected. This means we need to establish a parent-child relationship between the selected model and its versions.
+
+### Collections Schema
+
+#### Brands
+
+| name | code |
+| ---- | ---- |
+| Audi | AUD  |
+| BMW  | BMW  |
+
+#### Models
+
+| name | brand_code | model_code |
+| ---- | ---------- | ---------- |
+| A1   | AUD        | AUD_A1     |
+| A3   | AUD        | AUD_A3     |
+| X5   | BMW        | BMW_X5     |
+| X6   | BMW        | BMW_X6     |
+
+#### Versions
+
+| name               | version_code |
+| ------------------ | ------------ |
+| Sport line edition | AUD_A1       |
+| Business edition   | AUD_A1       |
+| S line             | AUD_A3       |
+| xDrive sport       | BMW_X5       |
+| xDrive city        | BMW_X5       |
+| xDrive competition | BMW_X6       |
+| xDrive sport       | BMW_X6       |
+| xDrive 4X4         | BMW_X6       |
+
+As you can see, each model has a `model_code` that serves as the identifier for grouping associated versions. The `version_code` in the `Version` collection is used to filter which versions are shown based on the selected model. In this setup, versions belonging to `A1` have a `version_code` of `"AUD_A1"`, and versions belonging to `X5` use `"BMW_X5"`.
+
+### Content Type Builder Configuration
+
+Let's start by adding the relational field for **version** and creating the custom field associated with the newly added relational field.
+
+<img src="./static/content-type-builder-car-creation-version-step-overview.png" alt="Content Type Builder - Adding Version Field" /> <br/>
+<br/>
+
+Next, we will configure the custom field for **version** and specify that its parent is the custom field **c_model**.
+
+<img src="./static/content-type-builder-car-creation-c_version-advanced.png" alt="Content Type Builder - Configuring Version Field Parent" /> <br/>
+<br/>
+
+Finally, we need to configure the **c_model** field, defining the fields involved in filtering the versions based on the selected model.
+
+<img src="./static/content-type-builder-car-creation-c_version_parent-advanced.png" alt="Content Type Builder - Configuring Version Filter by Model" /> <br/>
+<br/>
+
+### Content Manager Car View
+
+In the Content Manager, you will now see three default Strapi relational fields:
+
+- **brand**
+- **model**
+- **version**
+
+And three custom fields:
+
+- **c_brand**
+- **c_model**
+- **c_version**
+
+In the video below, you can see the difference between using the original fields (the first three in a row, right below the name), which display all possible results without any filtering, and the custom fields displayed in separate rows.
+
+Notice how the default fields show no filtering, while the custom fields provide contextual filtering based on your selections. You cannot select a model without first choosing a brand, and similarly, you cannot select a version without first selecting a model.
+
+In **Configure The View**, you can hide the default fields and display only the custom fields to streamline the interface.
+
+This entire process is demonstrated in the video.
+
+<img src="./static/brand-model-version-relationships.gif" alt="Content Manager - Managing Brand, Model, and Version Relationships" /> <br/>
+<br/>

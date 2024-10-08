@@ -68,7 +68,7 @@
             ""
           ]
         },
-        "filter": "{\"segment\": \"sport\"}"
+        "filter": "{\"segment\": \"sport\", \"name\": {\"$containsi\": \"xdrive\"}}"
       },
       "customField": "plugin::parent-child-relationships.relation"
     }

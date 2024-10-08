@@ -298,3 +298,17 @@ With the filter applied, we will only see:
 - xDrive sport
 
 <img src="./static/current-table-column-filter-version-segment.png" alt="Example of the current table column filter in action, showing only sports versions of the BMW X5 after filtering." />
+
+It's possible to create more complex filters.
+
+For example, let's say we want to introduce an additional condition, where we only want versions whose names contain **xdrive** (case-insensitive).
+
+We can modify the previously applied filter like this:
+
+```
+{"segment": "sport", "name": {"$containsi": "xdrive"}}
+```
+
+<img src="./static/current-table-column-filter-version-segment-name.png" alt="" />
+
+Now, the results will only return versions where the `segment` is equal to "sport" and the `name` contains the word "xdrive" (case-insensitive).

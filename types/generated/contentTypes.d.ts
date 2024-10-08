@@ -1000,7 +1000,7 @@ export interface ApiCarCar extends Schema.CollectionType {
           params: {
             db_columns: [''];
           };
-          filter: '{"segment": "sport"}';
+          filter: '{"segment": "sport", "name": {"$containsi": "xdrive"}}';
         }
       >;
     createdAt: Attribute.DateTime;

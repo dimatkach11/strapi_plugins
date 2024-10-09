@@ -393,3 +393,52 @@ Below are the configuration details with corresponding images:
 
 ![Lead Content Manager overview](./static/lead-content-manager-view.gif)  
 <br/>
+
+### `db_name: param_name - one per row` OR **DYNAMIC FILTER PARAMS**
+
+Let’s take a closer look at the `Car` collection and its relational field `model`, which includes the following fields and values:
+
+#### Models
+
+| name | brand_code | model_code |
+| ---- | ---------- | ---------- |
+| A1   | AUD        | AUD_A1     |
+| A3   | AUD        | AUD_A3     |
+| X5   | BMW        | BMW_X5     |
+| X6   | BMW        | BMW_X6     |
+
+In the advanced settings of `c_model`, you can define `db_name: param_name - one per row` like this:
+
+- **model_code: different_model_code_name**
+
+This configuration enables passing a dynamic `filters` object to the child collection’s service, formatted as:
+
+```json
+filters: { different_model_code_name: { '$eq': [selected_model_code_value] } }
+```
+
+When the model X6 is selected, and we click on the **versions** select, the following **dynamic filter** will be populated and sent to the version service:
+
+```json
+filters: {different_model_code_name: { '$eq': 'BMW_X6' }}
+```
+
+![Lead Content Manager overview](./static/car-db-params-model-to-version.png)  
+<br/>
+
+### `static_value: param_name - one per row` OR **STATIC FILTER PARAMS**
+
+In the advanced settings of `c_model`, if we define `static_value: param_name - one per row`, for example:
+
+- **static_value: generic_param_name**
+
+This configuration allows you to set static filter parameters that are sent directly to the child collection’s service. When we click on the versions select, the following **static filter** is populated and sent to the version service:
+
+```json
+filters: { generic_param_name: { '$eq': static_value } }
+```
+
+This is useful when you need to apply a fixed value to your query, independent of dynamic user selection.
+
+![Lead Content Manager overview](./static/car-db-static-params-model-to-version.png)  
+<br/>

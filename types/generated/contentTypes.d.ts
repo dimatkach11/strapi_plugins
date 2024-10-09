@@ -890,7 +890,7 @@ export interface ApiBrandBrand extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    brand_code: Attribute.String;
+    code: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -970,7 +970,7 @@ export interface ApiCarCar extends Schema.CollectionType {
         'plugin::parent-child-relationships.relation',
         {
           name: 'brand';
-          current_column: 'brand_code';
+          current_column: 'code';
           child_column: 'brand_code';
         }
       >;
@@ -980,14 +980,11 @@ export interface ApiCarCar extends Schema.CollectionType {
         {
           name: 'model';
           current_column: 'model_code';
-          child_column: 'model_code';
+          child_column: 'version_code';
           parent: 'c_brand';
           params: {
-            db_columns: [
-              'brand_code: different_brand_code_name',
-              'model_code: different_model_code_name'
-            ];
-            statics: ['static_value: static_value_param_name'];
+            db_columns: ['model_code: different_model_code_name'];
+            statics: ['static_value: generic_param_name'];
           };
         }
       >;
@@ -1688,7 +1685,7 @@ export interface ApiVersionVersion extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    model_code: Attribute.String;
+    version_code: Attribute.String;
     segment: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

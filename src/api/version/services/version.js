@@ -16,6 +16,8 @@ module.exports = createCoreService('api::version.version', ({strapi}) => ({
   async find(params) {
     const result = await super.find(params)
 
+    console.log(params);
+
     return result
   },
 }));

@@ -34,7 +34,7 @@
       "type": "customField",
       "options": {
         "name": "brand",
-        "current_column": "brand_code",
+        "current_column": "code",
         "child_column": "brand_code"
       },
       "customField": "plugin::parent-child-relationships.relation"
@@ -44,15 +44,14 @@
       "options": {
         "name": "model",
         "current_column": "model_code",
-        "child_column": "model_code",
+        "child_column": "version_code",
         "parent": "c_brand",
         "params": {
           "db_columns": [
-            "brand_code: different_brand_code_name",
             "model_code: different_model_code_name"
           ],
           "statics": [
-            "static_value: static_value_param_name"
+            "static_value: generic_param_name"
           ]
         }
       },

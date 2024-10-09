@@ -1592,6 +1592,38 @@ export interface ApiPlacePlace extends Schema.CollectionType {
   };
 }
 
+export interface ApiTestRepeatableTestRepeatable extends Schema.CollectionType {
+  collectionName: 'test_repeatables';
+  info: {
+    singularName: 'test-repeatable';
+    pluralName: 'test-repeatables';
+    displayName: 'test repeatable';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    items: Attribute.Component<'test-group.test-component', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::test-repeatable.test-repeatable',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::test-repeatable.test-repeatable',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTourTour extends Schema.CollectionType {
   collectionName: 'tours';
   info: {
@@ -1711,6 +1743,7 @@ declare module '@strapi/types' {
       'api::option.option': ApiOptionOption;
       'api::paid-course.paid-course': ApiPaidCoursePaidCourse;
       'api::place.place': ApiPlacePlace;
+      'api::test-repeatable.test-repeatable': ApiTestRepeatableTestRepeatable;
       'api::tour.tour': ApiTourTour;
       'api::version.version': ApiVersionVersion;
     }

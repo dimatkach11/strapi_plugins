@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_repeatables",
+  "info": {
+    "singularName": "test-repeatable",
+    "pluralName": "test-repeatables",
+    "displayName": "test repeatable",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "test-group.test-component"
+    }
+  }
+}

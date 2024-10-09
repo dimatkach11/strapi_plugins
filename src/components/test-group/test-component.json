@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_test_group_test_components",
+  "info": {
+    "displayName": "test component",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::nation.nation"
+    },
+    "cities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::city.city"
+    },
+    "c_nation": {
+      "type": "customField",
+      "options": {
+        "name": "nation",
+        "current_column": "locale_code",
+        "child_column": "city_code"
+      },
+      "customField": "plugin::parent-child-relationships.relation"
+    },
+    "c_cities": {
+      "type": "customField",
+      "options": {
+        "name": "cities",
+        "parent": "c_nation"
+      },
+      "customField": "plugin::parent-child-relationships.relation"
+    }
+  }
+}

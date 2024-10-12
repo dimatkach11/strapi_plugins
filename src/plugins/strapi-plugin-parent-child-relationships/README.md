@@ -51,7 +51,7 @@ These allow you to link different content types but lack advanced features for m
 
 <br>
 
-<img style="width: 100%; height: auto;" src="./static/default-relationships.gif" alt="default-strapi-relationships" /> <br/>
+<img style="width: 100%; height: auto;" src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/default-relationships.gif" alt="default-strapi-relationships" /> <br/>
 
 <br/>
 
@@ -61,7 +61,7 @@ The **Parent-Child Relationships** plugin introduces custom fields that extend d
 
 <br>
 
-<img style="width: 100%; height: auto;" src="./static/parent-child-relationships.gif" alt="parent-child-relationships" /> <br/>
+<img style="width: 100%; height: auto;" src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/parent-child-relationships.gif" alt="parent-child-relationships" /> <br/>
 
 <br/>
 
@@ -71,7 +71,7 @@ In this section we will use the following custom field:
 
 ### Parent-Child Relation
 
-<img src="./static/parent-child-relation-custom-field.png" alt="parent-child-relation-custom-field" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/parent-child-relation-custom-field.png" alt="parent-child-relation-custom-field" /> <br/>
 
 Where you have the ability to configure some **BASIC** and **ADVANCED SETTINGS**.
 For now, it's not necessary to understand the purpose of every field in the settings I'm about to list. I’ll explain how to configure them step-by-step using examples.
@@ -83,7 +83,7 @@ For now, it's not necessary to understand the purpose of every field in the sett
 
 - **`Relation name`**
 
-<img src="./static/parent-child-relation-custom-field-basic-settings.png" alt="parent-child-relation-custom-field-basic-settings" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/parent-child-relation-custom-field-basic-settings.png" alt="parent-child-relation-custom-field-basic-settings" /> <br/>
 
 #### ADVANCED SETTINGS
 
@@ -101,7 +101,7 @@ For now, it's not necessary to understand the purpose of every field in the sett
 
 - **`static_value: param_name - one per row`**
 
-<img src="./static/parent-child-relation-custom-field-advanced-settings.png" alt="parent-child-relation-custom-field-advanced-settings" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/parent-child-relation-custom-field-advanced-settings.png" alt="parent-child-relation-custom-field-advanced-settings" /> <br/>
 
 ---
 
@@ -173,7 +173,7 @@ For instance, when the Audi brand is selected, which has a `code` of `"AUD"`, th
 Begin by creating the `Car` collection type in Strapi. Ensure that it includes the necessary relational fields (`brand` and `model`) that will require filtering.
 
 <br>
-<img src="./static/content-type-builder-car-creation-first-step.png" alt="Content Type Builder - Creating Car Collection" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-car-creation-first-step.png" alt="Content Type Builder - Creating Car Collection" /> <br/>
 
 #### Step 2: Add Parent-Child Relation Custom Fields
 
@@ -183,19 +183,19 @@ Next, add a **Parent-Child Relation** custom field for each of the relational fi
 
 > **Note**: The **Name** chosen for this field is `c_brand`. This is just my convention to indicate that `c_brand` is a custom field related to the Brand collection. You can enter any name in this field; it has no restrictions. In contrast, the **Relation name** field must match the name of the related relational field to which it is linked. If you try to enter a relation name that does not exist in the collection (in our case, `Car`), this will not allow you to proceed when you click on the **finish** button, the window will remain open until a valid relation name is provided.
 
-<img src="./static/content-type-builder-car-creation-first-step-c_brand.png" alt="Content Type Builder - Adding Custom Field for Brand" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-car-creation-first-step-c_brand.png" alt="Content Type Builder - Adding Custom Field for Brand" /> <br/>
 <br>
 
 - **Model Field**: Set the **Relation name** as `model`.
 
-<img src="./static/content-type-builder-car-creation-first-step-c_model.png" alt="Content Type Builder - Adding Custom Field for Model" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-car-creation-first-step-c_model.png" alt="Content Type Builder - Adding Custom Field for Model" /> <br/>
 <br>
 
 #### Final Overview of Car Collection Type Fields
 
 Here is a visual overview of the fields configured for the `Car` collection type:
 
-<img src="./static/content-type-builder-car-creation-first-step-overview.png" alt="Content Type Builder - Car Configuration Fields Overview" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-car-creation-first-step-overview.png" alt="Content Type Builder - Car Configuration Fields Overview" /> <br/>
 <br>
 
 ### Advanced Configuration of Filtering Logic
@@ -208,14 +208,14 @@ Here is a visual overview of the fields configured for the `Car` collection type
 
 This configuration ensures that the models displayed have a matching `brand_code` corresponding to the selected brand's `code`.
 
-<img src="./static/content-type-builder-car-creation-first-step-c_brand-advanced-settings.png" alt="Advanced Settings - Brand Field" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-car-creation-first-step-c_brand-advanced-settings.png" alt="Advanced Settings - Brand Field" /> <br/>
 <br>
 
 - **Model Field Configuration**: For the model field (`c_model`), specify that its parent is `c_brand`.
 
   - Inside the **parent** settings option, choose `c_brand` as the parent field. This ensures that the filtering logic will be based on the brand selected in the `c_brand` field.
 
-<img src="./static/content-type-builder-car-creation-first-step-c_model-advanced-settings.png" alt="Advanced Settings - Model Field" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-car-creation-first-step-c_model-advanced-settings.png" alt="Advanced Settings - Model Field" /> <br/>
 
 This configuration establishes a dependent relationship where the `c_model` field (child) is filtered according to the selected `c_brand` field (parent), effectively creating a parent-child relationship between the two.
 
@@ -225,17 +225,17 @@ You have now successfully set up a hierarchical relationship between `brand` and
 
 In the Content Manager, you will now see both the default Strapi fields and the custom fields whit the same name. This is expected behavior.
 
-<img src="./static/content-manager-car-creation-first-step-overview.png" alt="Content Manager - Car Collection Fields Overview" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-manager-car-creation-first-step-overview.png" alt="Content Manager - Car Collection Fields Overview" /> <br/>
 
 To resolve this and display only the custom fields, use the **Configure The View** feature to hide the default fields.
 
-<img src="./static/content-manager-car-creation-configure-the-view.png" alt="Content Manager - Configure The View" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-manager-car-creation-configure-the-view.png" alt="Content Manager - Configure The View" /> <br/>
 
 ### Final Output
 
 Now, you can start creating entries with the correctly filtered brand and model relationships.
 
-<img src="./static/brand-model-relationships.gif" alt="Content Manager - Creating Brand and Model Relationships" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/brand-model-relationships.gif" alt="Content Manager - Creating Brand and Model Relationships" /> <br/>
 
 ### ## Next Step: Extending Parent-Child Relationships to Versions
 
@@ -287,17 +287,17 @@ For example, versions belonging to the **A1** model will have a `version_code` o
 
 Let's begin by adding a relational field for **version** in the `Car` collection type and creating the custom field for the newly added relational field.
 
-<img src="./static/content-type-builder-car-creation-version-step-overview.png" alt="Content Type Builder - Adding Version Field" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-car-creation-version-step-overview.png" alt="Content Type Builder - Adding Version Field" /> <br/>
 <br/>
 
 Next, we will configure the custom field for **version** and specify that its parent is the custom field **c_model**.
 
-<img src="./static/content-type-builder-car-creation-c_version-advanced.png" alt="Content Type Builder - Configuring Version Field Parent" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-car-creation-c_version-advanced.png" alt="Content Type Builder - Configuring Version Field Parent" /> <br/>
 <br/>
 
 Finally, we need to configure the **c_model** field, defining the fields involved in filtering the versions based on the selected model.
 
-<img src="./static/content-type-builder-car-creation-c_version_parent-advanced.png" alt="Content Type Builder - Configuring Version Filter by Model" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-car-creation-c_version_parent-advanced.png" alt="Content Type Builder - Configuring Version Filter by Model" /> <br/>
 <br/>
 
 ### Content Manager View with Version Filtering
@@ -322,7 +322,7 @@ In **Configure The View**, you can hide the default fields and display only the 
 
 This entire process is demonstrated in the video.
 
-<img src="./static/brand-model-version-relationships.gif" alt="Content Manager - Managing Brand, Model, and Version Relationships" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/brand-model-version-relationships.gif" alt="Content Manager - Managing Brand, Model, and Version Relationships" /> <br/>
 <br/>
 
 ---
@@ -336,7 +336,7 @@ In this section, we'll explain some advanced options available in the Parent-Chi
 - **db_name: param_name - one per row**
 - **static_value: param_name - one per row**
 
-<img src="./static/content-type-builder-relation-advanced-other-fields.png" alt="Advanced Field Options in Parent-Child Relationship" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-relation-advanced-other-fields.png" alt="Advanced Field Options in Parent-Child Relationship" /> <br/>
 <br/>
 
 ---
@@ -379,7 +379,7 @@ With the filter applied, we will only see:
 
 - xDrive sport
 
-<img src="./static/current-table-column-filter-version-segment.png" alt="Example of the current table column filter in action, showing only sports versions of the BMW X5 after filtering." />
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/current-table-column-filter-version-segment.png" alt="Example of the current table column filter in action, showing only sports versions of the BMW X5 after filtering." />
 
 It's possible to create more complex filters.
 
@@ -391,7 +391,7 @@ We can modify the previously applied filter like this:
 { "segment": "sport", "name": { "$containsi": "xdrive" } }
 ```
 
-<img src="./static/current-table-column-filter-version-segment-name.png" alt="" />
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/current-table-column-filter-version-segment-name.png" alt="" />
 
 Now, the results will only return versions where the `segment` is equal to "sport" and the `name` contains the word "xdrive" (case-insensitive).
 
@@ -454,28 +454,28 @@ Below are the configuration details with corresponding images:
 
 - Overview of the `Lead` fields.
 
-  ![Lead content type builder overview](./static/lead-content-type-builder-overview.png)  
+  ![Lead content type builder overview](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/lead-content-type-builder-overview.png)  
   <br/>
 
 - Configuration of `c_car`.
 
-  ![Car field configuration in Lead](./static/lead-content-type-builder-overview-1.png)  
+  ![Car field configuration in Lead](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/lead-content-type-builder-overview-1.png)  
   <br/>
 
-  ![Car field advanced settings](./static/lead-content-type-builder-overview-2.png)  
+  ![Car field advanced settings](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/lead-content-type-builder-overview-2.png)  
   <br/>
 
 - Configuration of `c_options`.
 
-  ![Options field configuration in Lead](./static/lead-content-type-builder-overview-3.png)  
+  ![Options field configuration in Lead](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/lead-content-type-builder-overview-3.png)  
   <br/>
 
-  ![Options field advanced settings](./static/lead-content-type-builder-overview-4.png)  
+  ![Options field advanced settings](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/lead-content-type-builder-overview-4.png)  
   <br/>
 
 ### Lead - Content Manager View
 
-![Lead Content Manager overview](./static/lead-content-manager-view.gif)  
+![Lead Content Manager overview](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/lead-content-manager-view.gif)  
 <br/>
 
 ---
@@ -509,7 +509,7 @@ When the model X6 is selected, and we click on the **versions** select, the foll
 filters: { different_model_code_name: { '$eq': 'BMW_X6' } }
 ```
 
-![Lead Content Manager overview](./static/car-db-params-model-to-version.png)  
+![Lead Content Manager overview](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/car-db-params-model-to-version.png)  
 <br/>
 
 ---
@@ -528,14 +528,14 @@ filters: { generic_param_name: { '$eq': 'static_value' } }
 
 This is useful when you need to apply a fixed value to your query, independent of dynamic user selection.
 
-![Lead Content Manager overview](./static/car-db-static-params-model-to-version.png)  
+![Lead Content Manager overview](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/car-db-static-params-model-to-version.png)  
 <br/>
 
 ---
 
 ## 🔧 Configuration - Setting Up a **Dynamic Relation Root**
 
-![Dynamic Relation Root Custom Field](./static/dynamic-relation-root.png)  
+![Dynamic Relation Root Custom Field](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/dynamic-relation-root.png)  
 <br/>
 
 Where you have the ability to configure only some **BASIC SETTINGS**
@@ -547,7 +547,7 @@ Where you have the ability to configure only some **BASIC SETTINGS**
 
 - **`Relations: one per row`**
 
-![Dynamic Relation Root Content Type Builder Basic Settings](./static/dinamic-root-basic-settings.png)  
+![Dynamic Relation Root Content Type Builder Basic Settings](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/dinamic-root-basic-settings.png)  
 <br/>
 
 The **Dynamic Relation Root** custom field is a conditional custom field that allows defining a set of relational fields that can dynamically change based on a simple select input.
@@ -563,19 +563,19 @@ Our goal is to hide both fields in the Content Manager and provide the ability t
 
 The configuration is quite simple this time. You need to define in an enumeration field which relations can be selected from a dropdown.
 
-![Dynamic Relation Root Content Type Builder Configuration](./static/dynamic-relation-root-content-type-builder.png)  
+![Dynamic Relation Root Content Type Builder Configuration](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/dynamic-relation-root-content-type-builder.png)  
 <br/>
 
 As shown in the image, we have named the custom field **c_course_type**.
 
 Now, we need to add the custom field we’ve discussed before, **Parent-Child Relation**, and in the basic settings, for the `relation name`, we enter `c_course_type`.
 
-![Dynamic Relation Root Content Type Builder Configuration](./static/dynamic-relation-root-c_course.png)  
+![Dynamic Relation Root Content Type Builder Configuration](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/dynamic-relation-root-c_course.png)  
 <br/>
 
 In the **advanced settings**, specify that the `parent` is always `c_course_type`.
 
-![Parent-Child Relation with Dynamic Relation Root - Content Type Builder Configuration](./static/dynamic-relation-root-c_options.png)  
+![Parent-Child Relation with Dynamic Relation Root - Content Type Builder Configuration](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/dynamic-relation-root-c_options.png)  
 <br/>
 
 That’s it! The configuration is now complete. In the Content Manager, you will have a dropdown that dynamically changes the **Parent-Child Relation** custom field we named `c_course`.
@@ -586,7 +586,7 @@ In this example, the filtering logic is based on a shared `course` relational ta
 
 Even though I didn’t explicitly mention it earlier, all the collections **free_course**, **paid_course**, and **course_options** have a relation to the `Course` collection.
 
-![Dynamic Relation Root Content Type Builder Configuration](./static/dynamic-relation-root-c_course-advanced-settings.png)  
+![Dynamic Relation Root Content Type Builder Configuration](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/dynamic-relation-root-c_course-advanced-settings.png)  
 <br/>
 
 Below is the schema with some values that these collections have in the database:
@@ -627,7 +627,7 @@ Below is the schema with some values that these collections have in the database
 
 Here’s the video of how this looks in the Content Manager:
 
-![Course Page - Content Manager Video](./static/course-page-content-manager.gif)  
+![Course Page - Content Manager Video](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/course-page-content-manager.gif)  
 <br/>
 
 ## 🤝 Contributing

@@ -1,5 +1,16 @@
 # Strapi Plugin: Parent-Child Relationships
 
+## ✨ Features
+
+- **Custom Fields** (Introduces two new custom fields: Parent-Child Relation and Dynamic Relation Root)
+- **Hierarchical Relationships** (Enables creation and management of parent-child structures between content types)
+- **Contextual Filtering** (Automatically filters and displays relevant child content based on parent selection)
+- **Flexible Configuration** (Supports various settings for fine-tuning relationship behaviors)
+- **Advanced Filtering Options** (Includes additional filtering capabilities like `current table column filter`)
+- **Common Relational Table Support** (Allows filtering based on shared relational fields across collections)
+- **Custom Query Parameters** (Passes dynamic or static parameters to child relation services)
+- **Dynamic Relational Field Display** (Uses Dynamic Relation Root to conditionally show/hide relational fields based on user selection)
+
 ## ⏳ Installation
 
 To install the plugin, run the following command in your Strapi project directory:

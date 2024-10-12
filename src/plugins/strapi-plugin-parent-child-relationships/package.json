@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-parent-child-relationships",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Strapi plugin to create and manage parent-child relationships between content types using custom fields",
   "keywords": [
     "strapi",

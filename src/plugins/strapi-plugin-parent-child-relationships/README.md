@@ -92,7 +92,22 @@ For now, it's not necessary to understand the purpose of every field in the sett
 
 <img src="./static/parent-child-relation-custom-field-advanced-settings.png" alt="parent-child-relation-custom-field-advanced-settings" /> <br/>
 
-### Example: Scenario Overview
+---
+
+### Example: Car Collection
+
+In this section, we'll demonstrate the configuration of a parent-child relationship using only the following options available in the **Parent-Child Relation** custom field settings:
+
+#### BASIC OPTIONS:
+
+- **Name**
+- **Relation name**
+
+#### ADVANCED OPTIONS:
+
+- **parent**
+- **current table column**
+- **child table column**
 
 In this example, we will configure a parent-child relationship using the **Parent-Child Relationships** plugin by creating a `Car` collection type. This collection will include the following relational fields:
 
@@ -103,7 +118,7 @@ When a specific brand is selected—let's say Audi—our objective is to dynamic
 
 ### Achieving Contextual Filtering Using the Parent-Child Schema
 
-To accomplish this, we need to establish a parent-child hierarchy where selecting a brand automatically filters the available model options. This setup requires that the model results are dynamically filtered based on the unique identifier of the selected parent brand.
+To accomplish this, we need to establish a parent-child hierarchy where selecting a brand automatically filters the available model options. This setup requires that the model results are dynamically filtered based on the identifier of the selected parent brand.
 
 For our example, we will use the `code` field in the `Brand` collection and the `brand_code` field in the `Model` collection to create this relationship. By linking these two fields, we can ensure that when a brand is chosen, only its corresponding models are displayed.
 
@@ -299,15 +314,21 @@ This entire process is demonstrated in the video.
 <img src="./static/brand-model-version-relationships.gif" alt="Content Manager - Managing Brand, Model, and Version Relationships" /> <br/>
 <br/>
 
-### Advanced Field Options: Explanation of Other Fields
+---
+
+### Advanced Field Options: Explanation of Additional Fields
+
+In this section, we'll explain some advanced options available in the Parent-Child Relationship settings, such as:
 
 - **common relational table**
 - **current table column filter**
 - **db_name: param_name - one per row**
 - **static_value: param_name - one per row**
 
-<img src="./static/content-type-builder-relation-advanced-other-fields.png" alt="" /> <br/>
+<img src="./static/content-type-builder-relation-advanced-other-fields.png" alt="Advanced Field Options in Parent-Child Relationship" /> <br/>
 <br/>
+
+---
 
 ### `current table column filter`
 
@@ -332,8 +353,8 @@ With the `current table column filter`, you can apply a JSON filter to limit the
 
 For instance, if we only want to display sports versions of cars, we can apply the following filter:
 
-```
-{"segment": "sport"}
+```json
+{ "segment": "sport" }
 ```
 
 By adding this filter, only the sports versions will be displayed in the results.
@@ -355,13 +376,15 @@ For example, let's say we want to introduce an additional condition, where we on
 
 We can modify the previously applied filter like this:
 
-```
-{"segment": "sport", "name": {"$containsi": "xdrive"}}
+```json
+{ "segment": "sport", "name": { "$containsi": "xdrive" } }
 ```
 
 <img src="./static/current-table-column-filter-version-segment-name.png" alt="" />
 
 Now, the results will only return versions where the `segment` is equal to "sport" and the `name` contains the word "xdrive" (case-insensitive).
+
+---
 
 ### `common relational table`
 
@@ -444,6 +467,8 @@ Below are the configuration details with corresponding images:
 ![Lead Content Manager overview](./static/lead-content-manager-view.gif)  
 <br/>
 
+---
+
 ### `db_name: param_name - one per row` OR **DYNAMIC FILTER PARAMS**
 
 Let’s take a closer look at the `Car` collection and its relational field `model`, which includes the following fields and values:
@@ -463,18 +488,20 @@ In the advanced settings of `c_model`, you can define `db_name: param_name - one
 
 This configuration enables passing a dynamic `filters` object to the child collection’s service, formatted as:
 
-```
+```bash
 filters: { different_model_code_name: { '$eq': [selected_model_code_value] } }
 ```
 
 When the model X6 is selected, and we click on the **versions** select, the following **dynamic filter** will be populated and sent to the version service:
 
-```
-filters: {different_model_code_name: { '$eq': 'BMW_X6' }}
+```bash
+filters: { different_model_code_name: { '$eq': 'BMW_X6' } }
 ```
 
 ![Lead Content Manager overview](./static/car-db-params-model-to-version.png)  
 <br/>
+
+---
 
 ### `static_value: param_name - one per row` OR **STATIC FILTER PARAMS**
 
@@ -484,8 +511,8 @@ In the advanced settings of `c_model`, if we define `static_value: param_name - 
 
 This configuration allows you to set static filter parameters that are sent directly to the child collection’s service. When we click on the versions select, the following **static filter** is populated and sent to the version service:
 
-```
-filters: { generic_param_name: { '$eq': static_value } }
+```bash
+filters: { generic_param_name: { '$eq': 'static_value' } }
 ```
 
 This is useful when you need to apply a fixed value to your query, independent of dynamic user selection.
@@ -493,9 +520,23 @@ This is useful when you need to apply a fixed value to your query, independent o
 ![Lead Content Manager overview](./static/car-db-static-params-model-to-version.png)  
 <br/>
 
+---
+
 ## 🔧 Configuration - Setting Up a **Dynamic Relation Root**
 
 ![Dynamic Relation Root Custom Field](./static/dynamic-relation-root.png)  
+<br/>
+
+Where you have the ability to configure only some **BASIC SETTINGS**
+
+#### BASIC SETTINGS
+
+- **`Name`**  
+  _(This is the only default Strapi basic settings field)_
+
+- **`Relations: one per row`**
+
+![Dynamic Relation Root Content Type Builder Basic Settings](./static/dinamic-root-basic-settings.png)  
 <br/>
 
 The **Dynamic Relation Root** custom field is a conditional custom field that allows defining a set of relational fields that can dynamically change based on a simple select input.

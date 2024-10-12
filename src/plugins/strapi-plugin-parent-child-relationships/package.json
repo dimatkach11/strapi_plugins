@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-parent-child-relationships",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Strapi plugin to create and manage parent-child relationships between content types using custom fields",
   "keywords": [
     "strapi",
@@ -50,8 +50,12 @@
       "url": "https://github.com/dimatkach11"
     }
   ],
+  "bugs": {
+    "url": "https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/issues"
+  },
+  "homepage": "https://github.com/dimatkach11/strapi-plugin-parent-child-relationships",
   "engines": {
-    "node": ">=14.19.1 <=20.x.x",
+    "node": ">=14.19.1",
     "npm": ">=6.0.0"
   },
   "license": "MIT"

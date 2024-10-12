@@ -629,3 +629,30 @@ Here’s the video of how this looks in the Content Manager:
 
 ![Course Page - Content Manager Video](./static/course-page-content-manager.gif)  
 <br/>
+
+## 🤝 Contributing
+
+Feel free to fork and make a pull request of this plugin. All the input is welcome!
+
+## ⭐️ Show your support
+
+Give a star if this project helped you.
+
+## 🔗 Links
+
+- [NPM package](https://www.npmjs.com/package/strapi-plugin-parent-child-relationships)
+- [GitHub repository](https://github.com/dimatkach11/strapi-plugin-parent-child-relationships)
+
+### GitHub Repository with Examples
+
+You can clone the repository and explore all the examples described in this guide, as well as additional configurations and use cases.
+
+- [GitHub Repository with Examples](https://github.com/dimatkach11/strapi_plugins/tree/strapi-plugin-parent-child-relations)
+
+## 🌎 Community support
+
+- You can contact me on the Strapi Discord [channel](https://discord.strapi.io/).
+
+## 📝 License
+
+- [MIT License](LICENSE.md)

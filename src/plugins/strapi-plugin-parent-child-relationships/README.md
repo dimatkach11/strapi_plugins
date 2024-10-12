@@ -36,7 +36,7 @@ After installation you will find two custom fields at the custom fields section 
 
 <br>
 
-<img src="./static/content-type-builder-custom-fields.png" alt="content-type-builder-custom-fields" /> <br/>
+<img src="https://github.com/dimatkach11/strapi-plugin-parent-child-relationships/raw/main/static/content-type-builder-custom-fields.png" alt="content-type-builder-custom-fields" /> <br/>
 
 <br/>
 

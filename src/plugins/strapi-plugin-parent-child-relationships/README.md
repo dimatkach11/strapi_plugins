@@ -647,7 +647,7 @@ Give a star if this project helped you.
 
 You can clone the repository and explore all the examples described in this guide, as well as additional configurations and use cases.
 
-- [GitHub Repository with Examples](https://github.com/dimatkach11/strapi_plugins/tree/strapi-plugin-parent-child-relations)
+- [GitHub Repository with Examples](https://github.com/dimatkach11/strapi_plugins/tree/strapi-plugin-parent-child-relationships-examples)
 
 ## 🌎 Community support
 

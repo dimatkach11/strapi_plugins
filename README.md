@@ -18,7 +18,7 @@ Thank you for your support and understanding. Follow the steps below to ensure a
 
 In your `./config/plugins.js`, remove the current configuration for `custom-fields`, remove the following:
 
-```json
+```js
 "custom-fields": {
   enabled: true,
   resolve: "./src/plugins/custom-fields",

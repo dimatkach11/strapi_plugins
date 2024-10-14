@@ -1,4 +1,4 @@
-# ⚠️ Important: Plugin Moved and Updated
+# ⚠️ Important: Plugin Moved and Updated ⚠️
 
 The `custom-fields` plugin from this repository has been **moved** and **updated** to a new repository. If you are using this plugin and wish to upgrade while retaining your existing configurations, a migration process is required.
 

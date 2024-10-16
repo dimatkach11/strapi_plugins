@@ -9020,10 +9020,10 @@ statuses@2.0.1, statuses@^2.0.1:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
 
-strapi-plugin-parent-child-relationships@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/strapi-plugin-parent-child-relationships/-/strapi-plugin-parent-child-relationships-1.0.0.tgz#ba2821bb05819c5492bf673ee6cd6099f1b334fe"
-  integrity sha512-91Ew2MgEHX65ZNrae2UdwWQ9xffKzSOPCgS8mNDjKzt6Z3RuUBeNDFWyqW87EpR7/Ej3w/VnLLUBVK0GeCE+Bw==
+strapi-plugin-parent-child-relationships@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-parent-child-relationships/-/strapi-plugin-parent-child-relationships-1.0.2.tgz#9f1149f96776289216c2553948cfc0c23edc1ee1"
+  integrity sha512-9F5v/IJiCUWuwFyfXAPJKuHnP6s6twqkanh+ZoLdJ1M7CL6hYAkxzwCKg9sEUKvZlwTkpws8e0juGf9XpZVBdg==
   dependencies:
     "@strapi/design-system" "^1.6.3"
     "@strapi/helper-plugin" "^4.6.0"

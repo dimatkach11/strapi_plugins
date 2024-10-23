@@ -11,6 +11,15 @@
 - **Custom Query Parameters** (Passes dynamic or static parameters to child relation services)
 - **Dynamic Relational Field Display** (Uses Dynamic Relation Root to conditionally show/hide relational fields based on user selection)
 
+## 🖐 Requirements
+
+- **Node.js**: `>=14.19.1`
+- **NPM**: `>=6.x.x`
+
+**Supported Strapi versions**:
+
+- Strapi `>=4.4.0 <5.0.0`
+
 ## ⏳ Installation
 
 To install the plugin, run the following command in your Strapi project directory:
